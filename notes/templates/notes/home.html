@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    
+
+    
+    <div class="container">
+        <br>
+        <h1>Recent Notes</h1>
+        <div class="notes">
+            <div class="note">
+                <h2 class="text-info">Hello there</h2>
+                <p>How are you doing?</p>
+                <div class="options">
+                    <a href="" class="btn btn-success">Update</a>
+                    <a href="" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            <div class="note">
+                <h2 class="text-info">Hello there</h2>
+                <p>How are you doing?</p>
+                <div class="options">
+                    <a href="" class="btn btn-success">Update</a>
+                    <a href="" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            <div class="note">
+                <h2 class="text-info">Hello there</h2>
+                <p>How are you doing?</p>
+                <div class="options">
+                    <a href="" class="btn btn-success">Update</a>
+                    <a href="" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="add-modal" id="add-modal">
+        <div class="form">
+            <form action="" method="post">
+                <h3>Add Note</h3>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="description">description</label>
+                    <textarea name="description" id="description" class="form-control" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger close-btn" onclick="closeModal('add-modal')">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock body %}
+   
