@@ -1,19 +1,12 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block body %}    
     <div class="container">
        <div class="form">
             <h3 class="text-primary">Update Note</h3>
             <form action="" method="POST">
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="notes">Description</label>
-                    <textarea name="description" id="description" class="form-control" rows="5">
-                    </textarea>
-                </div>
+                {% csrf_token %}
+                {{form | crispy}}
                 <button type="submit" class="btn-info btn">Update</button>
             </form>
        </div>

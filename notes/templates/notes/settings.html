@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block body %}    
     <div class="container">
         <div class="form">
             <h3 class="text-primary">Account Settings</h3>
+            {% if messages %}
+                
+            {% for message in messages %}
+                <p class="alert alert-{{message.tags}}">{{message}}</p>
+            {% endfor %}
+                
+        {% endif %}
             <form action="" method="POST">
-                <div class="form-group">
-                    <label for="title">Username</label>
-                    <input type="text" name="title" id="title" class="form-control" required value="user">
-                </div>
-                <div class="form-group">
-                    <label for="title">Email</label>
-                    <input type="text" name="email" id="email" class="form-control" disabled value="user@test.com">
-                </div>
+                {% csrf_token %}
+                {{form |crispy}}
                 <button type="submit" class="btn-info btn">Save</button>
             </form>
     </div>

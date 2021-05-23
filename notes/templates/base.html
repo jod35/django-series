@@ -14,19 +14,37 @@
     <header >
         <nav class="navbar navbar-expand navbar-dark bg-dark">
             <ul class="nav navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'notes:index' %}">Keep Notes</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link add" href="{% url 'notes:register' %}">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link add" href="{% url 'notes:login' %}">Login</a>
-                </li>
+               
+               {% if user.is_authenticated %}
+               <li class="nav-item active">
+                <a class="nav-link" href="{% url 'notes:home_page' %}">Keep Notes</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link add" href="#"> + Add Notes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link add" href="{% url 'notes:settings' %}">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link add" href="{% url 'notes:logout' %}">Log Out</a>
+            </li>
+               {% else %}
+               <li class="nav-item active">
+                <a class="nav-link" href="{% url 'notes:index' %}">Keep Notes</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link add" href="{% url 'notes:register' %}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link add" href="{% url 'notes:login' %}">Login</a>
+            </li>
+               {% endif %}
+                   
             </ul>
         </nav>
     </header>
     {% block body%}
     {% endblock body%}
+    <script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>
